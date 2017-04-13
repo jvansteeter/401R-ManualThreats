@@ -1,0 +1,26 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" ng-controller="loginControl">
+    <div class="modal-content">
+      <div class="modal-header" ng-show="title">
+        <button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <h4 class="modal-title" ng-bind="title"></h4>
+        <form>
+          <input type='text' name='username' class='form-control' ng-model="usernameRegister" placeholder='Username' required autofocus> 
+          <input type='password' name='password' class='form-control' ng-model="firstPasswordRegister" placeholder='Password' required> 
+          <input type='password' name='passwordAgain' class='form-control' ng-model="secondPasswordRegister" placeholder='Confirm Password' required> 
+          <input type='text' name='firstName' class='form-control' ng-model="firstNameRegister" placeholder='First Name' required> 
+          <input type='text' name='lastName' class='form-control' ng-model="lastNameRegister" placeholder='Last Name' required> 
+          <input type='text' name='authCode' class='form-control' ng-model="authCodeRegister" placeholder='Authorization Code' required> 
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <p style="color : red">{{ registerInfo }}</p>
+        <button type="button" class="btn btn-primary" ng-click="register()">Register</button>
+        <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

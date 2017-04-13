@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="clientApp">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<link href="stylesheet/style.css" rel="stylesheet">
+
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.js"></script>
+		<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+		<script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+		<script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+		<link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css">
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="javascript/angularModule.js"></script>
+		<script src="javascript/service/profileService.js"></script>
+		<script src="javascript/socketFactory.js"></script>
+		<script src="javascript/control/homeController.js"></script>
+
+		<title>Posts</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-static navbar-inverse">
+				<div class="container">
+					<a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="fa fa-chevron-down"></span>
+					</a>
+					<div class="nav-collapse collase">
+						<ul class="nav navbar-right navbar-nav">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span ng-bind="name"></span>  <i class="fa fa-user"></i> <i class="fa fa-chevron-down"></i></a>
+								<ul class="dropdown-menu">
+									<li><a href="login">Logout</a></li>
+								 </ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+		</nav><!-- /.navbar -->
+
+<!-- Begin Body -->
+<div class="container" ng-controller="homeController" ng-init="init()">
+	<div class="row">
+		<div class="col col-xs-12">
+			<h1>Post</h1>
+			<div>{{ post | json}}</div><br>
+			<a href="{{post.activity_url }}" target="_blank">{{ post.activity_url }}</a><br>
+			<div>{{post.raw_body_text}}</div><br>
+			<div class="row" style="position: fixed; bottom: 50px; width: 60%">
+				<div class="col col-xs-10">
+					<button class="btn btn-danger" ng-click="threat()">THREAT</button>
+				</div>
+				<div class="col col-xs-2">
+					<button class="btn btn-default" ng-click="nothreat()">No Threat</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
